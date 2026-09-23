@@ -22,7 +22,7 @@ export const personalInfo: PersonalInfo = {
   email: "wanafiq.d03@gmail.com",
   phone: "347-555-0192",
   github: "https://github.com/Feekkk",
-  avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800",
+  avatar: "/profile.jpg",
   bio: "I'm a full stack developer with a passion for building web applications that are both functional and aesthetically pleasing. I'm currently working as a full stack developer at a Universiti Kuala Lumpur RCMP. I'm also a freelance developer and I'm available for collaboration.",
   skills: "React, Next.js, Tailwind CSS, TypeScript, Node.js, Tan-Stack Query, MySQL, Docker, Azure, PLESK Hosting, WordPress",
 };
