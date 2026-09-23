@@ -108,24 +108,6 @@ export default function HeroSection() {
             {personalInfo.title}
           </h2>
         </motion.div>
-
-        {/* Right: Website & Social */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col space-y-0.5 md:space-y-1 text-xs md:text-base text-orange text-right font-['Rubik']"
-        >
-          <a
-            href={`https://${personalInfo.website}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity"
-          >
-            {personalInfo.website}
-          </a>
-          <div>@{personalInfo.website.split(".")[0]}</div>
-        </motion.div>
       </div>
 
       {/* Divider Line 3 (Bottom) */}

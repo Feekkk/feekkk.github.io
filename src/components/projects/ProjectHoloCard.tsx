@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
@@ -26,43 +26,12 @@ interface ProjectHoloCardProps {
 }
 
 export default function ProjectHoloCard({ project, index, total }: ProjectHoloCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
   const tags = project.techStack.slice(0, 4);
   const rarity = project.status === "active" ? "LIVE" : "ARCHIVED";
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    cardRef.current.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
-    cardRef.current.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
-  };
-
-  const handlePointerLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.setProperty("--mx", "50%");
-    cardRef.current.style.setProperty("--my", "50%");
-  };
-
   const card = (
-    <div
-      ref={cardRef}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-      style={{ "--mx": "50%", "--my": "50%" } as React.CSSProperties}
-      className="relative isolate w-full max-w-[380px] overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
-    >
-      {!reducedMotion && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-10 opacity-50 mix-blend-multiply"
-          style={{
-            background:
-              "radial-gradient(circle at var(--mx) var(--my), rgba(0,229,255,0.28), rgba(255,0,214,0.18) 30%, rgba(255,107,53,0.16) 45%, transparent 65%)",
-          }}
-        />
-      )}
-
+    <div className="relative isolate w-full max-w-[380px] overflow-hidden rounded-2xl border border-black/10 bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
       <div className="relative z-20">
         <div className="mb-5 flex items-center justify-between gap-3">
           <span className="font-['Rubik'] text-[10px] uppercase tracking-[0.25em] text-black/40">
